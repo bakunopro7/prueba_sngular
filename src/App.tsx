@@ -1,4 +1,3 @@
-import './App.css'
 import InputComponent from "./components/InputComponent.tsx";
 import {useState} from "react";
 import CalculatorComponent from "./components/CalculatorComponent.tsx";
