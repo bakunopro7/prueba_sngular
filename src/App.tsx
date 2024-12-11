@@ -2,6 +2,7 @@ import './App.css'
 import InputComponent from "./components/InputComponent.tsx";
 import {useState} from "react";
 import CalculatorComponent from "./components/CalculatorComponent.tsx";
+import {Toaster, toast} from "sonner";
 
 function App() {
     const [n, setN] = useState(0); // initial state
@@ -16,7 +17,7 @@ function App() {
         if (value >= 0) {
             setN(value);
         } else {
-            console.error('Value must be positive.');
+            toast.error('Value must be positive.');
         }
     };
 
@@ -32,6 +33,7 @@ function App() {
         <>
             <div className="flex justify-center items-center h-screen">
                 <div className="w-full max-w-md">
+                    <Toaster position="top-right"/>
                     <InputComponent onSubmit={handleSubmit} onReset={handleReset}/>
                     <CalculatorComponent n={n}/>
                 </div>
