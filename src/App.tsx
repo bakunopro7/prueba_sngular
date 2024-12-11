@@ -18,6 +18,7 @@ function App() {
     const handleSubmit = (value: number) => {
         if (value >= 0) {
             setN(value);
+            toast.success('Value successfully processed.');
         } else {
             toast.error('Value must be positive.');
         }
