@@ -11,8 +11,8 @@ const CalculatorComponent: React.FC<CalculatorComponentProps> = ({n}: Calculator
     return (
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 className="text-lg font-bold mb-4">Resultado del cálculo</h2>
-            <img src="/ecuacion.png" alt=""/>
-            <p>El término {n} de la serie es: {result}</p>
+            <img className="mb-4" src="/ecuacion.png" alt=""/>
+            <p className="text-center uppercase">El término {n} de la serie es: {result}</p>
         </div>
     );
 };

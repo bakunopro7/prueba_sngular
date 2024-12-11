@@ -7,10 +7,13 @@ function App() {
     const [n, setN] = useState(0); // initial state
 
     /**
-     * Handles the submission of a value by updating the state.
+     * Handles the submission of a numeric value by performing validation and updating the state.
      *
-     * @param {number} value - The value to be set in the state.
-     * This function is used to update the state with the given numerical value.
+     * The function checks if the provided value is non-negative. If the value is valid
+     * (i.e., zero or greater), it updates the state using the `setN` function. If the value
+     * is invalid (i.e., less than zero), an error message is displayed using a toast notification.
+     *
+     * @param {number} value - The numeric value to be validated and processed.
      */
     const handleSubmit = (value: number) => {
         if (value >= 0) {

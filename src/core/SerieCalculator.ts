@@ -6,9 +6,8 @@ export class SerieCalculator {
      * @param {number} n - The position of the triangular number to calculate. Must be a non-negative integer.
      * @return {number} The nth triangular number.
      */
-
     triangular(n: number): number {
-        // Implementación de la función triangular
+        // Implement tringular number
         return (n * (n + 1)) / 2;
     }
 
@@ -24,28 +23,31 @@ export class SerieCalculator {
         for (let i = 2; i <= Math.sqrt(n); i++) {
             if (n % i === 0) return false;
         }
-        return true;
+        return n > 1;
     }
 
     /**
-     * Calculates the Fibonacci number at the given position using recursion.
+     * Computes the nth Fibonacci number iteratively.
      *
-     * @param {number} n - The position in the Fibonacci sequence (zero-based index).
-     *                      Must be a non-negative integer.
-     * @return {number} The Fibonacci number at the given position.
+     * @param {number} n - The index (0-based) of the Fibonacci sequence to compute.
+     * @return {number} The nth Fibonacci number.
      */
     fibonacci(n: number): number {
-        if (n <= 0) return 0; // Caso base
-        if (n === 1) return 1; // Caso base detach the value of condition
-        return this.fibonacci(n - 1) + this.fibonacci(n - 2); // Llamada recursiva
+        if (n <= 1) return n; // Caso base
+        let prev1 = 0, prev2 = 1;
+        for (let i = 2; i <= n; i++) {
+            const temp = prev1 + prev2;
+            prev1 = prev2;
+            prev2 = temp;
+        }
+        return prev2;
     }
 
-
     /**
-     * Calculates a term using a specific formula involving triangular, prime, and Fibonacci sequence calculations.
+     * Calculates a term based on triangular, prime, and Fibonacci number computations.
      *
-     * @param {number} n - The input number used to calculate the term. It must be a positive integer greater than 0.
-     * @return {number} The result of the calculation based on the provided formula.
+     * @param {number} n - The input number used to calculate the term.
+     * @return {number} The computed term based on the provided number.
      */
     calculateTerm(n: number): number {
         return 4 * this.triangular(n - 1) - 2 * (this.primo(n - 1) ? 1 : 0) + this.fibonacci(n + 2);
